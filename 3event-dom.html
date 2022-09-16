@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - Event</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <p>Belajar eventListener - click</p>
+        
+        <div>
+          <div id="output">Tombol yang ditekan adalah : </div>
+        </div>
+
+        <div>
+          <button id="atas">Tombol Atas &#8593</button>
+          <button id="bawah">Tombol Bawah &#8595</button>
+          <button id="kanan">Tombol Kanan &#8594</button>
+          <button id="kiri">Tombol Kiri &#8592</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const templateOutput = "Tombol yang ditekan adalah : "
+      const output = document.getElementById("output");
+
+      const atas  = document.getElementById("atas");
+      const bawah  = document.getElementById("bawah");
+      const kanan  = document.getElementById("kanan");
+      const kiri  = document.getElementById("kiri");
+
+      const tombolBawahDitekan = (event) => {
+        output.innerHTML = `${templateOutput} bawah`;
+      }
+      const tombolKananDitekan = (event) => {
+        output.innerHTML = `${templateOutput} kanan`;
+      }
+      const tombolKiriDitekan = (event) => {
+        output.innerHTML = `${templateOutput} Kiri`;
+      }
+
+      atas.addEventListener(
+        //nama event
+        "click", 
+        // funcktion handler
+        (event) => {
+          // pakai template literal / string literalh menggunakan backtict
+          output.innerHTML = `${templateOutput} atas`
+        });
+        bawah.addEventListener('click', tombolBawahDitekan);
+        kanan.addEventListener('click', tombolKananDitekan);
+        kiri.addEventListener('click', tombolKiriDitekan);
+
+        // sekarang event on keypress
+        const fungsiUntukTombolDitekan = (event) => {
+          const tombolYangDitekan = event.key;
+          let hasilOutput;
+
+          if (tombolYangDitekan === 'w') {
+            hasilOutput = "atas";
+          } else if (tombolYangDitekan === 'a') {
+            hasilOutput = "kiri";
+          } else if (tombolYangDitekan === 'd') {
+            hasilOutput = "kanan";
+          } else if (tombolYangDitekan === 's') {
+            hasilOutput = "bawah";
+          } else {
+            hasilOutput = "Bukan wasd"
+          }
+
+          output.innerHTML = `${templateOutput + hasilOutput}`
+        }
+
+        document.addEventListener("keypress", fungsiUntukTombolDitekan);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script>
+      const app = document.getElementById('app');
+
+      //buat H1 dengan JS
+      const headingSatu = document.createElement('h1');
+      //definisikan h1 dengan headingPertama
+      headingSatu.id = 'headingPertama';
+      // isikan text 'Hallo ini adalah heading 1' kedalam hearngSatu
+      headingSatu.innerHTML = 'Hallo ini adalah Heading 1';
+      //masukan headingSatu kedalam id app
+      app.append(headingSatu);
+      // tambahkan element h2
+      const headingDua = document.createElement('h2');
+      // sekarang berikan headingDua attribute class
+      headingDua.className = 'headingKedua';
+      // sekarang tambahkan text menggunakan appent bukan innerHTML
+      headingDua.append('Hallo ini adalah Heading 2 dengan suatu class');
+      //memastikan bahwa yang diappend wajib suatu element
+      app.appendChild(headingDua);
+      // buat h3
+      const headingTigaPertama = document.createElement('h3');
+      const headingTigaKedua = document.createElement('h3');
+
+      headingTigaPertama.innerHTML = 'Hallo ini adalah Heading 3 yang pertama';
+      headingTigaKedua.append('Hallo ini adalah Heading 3 yang kedua');
+      //tampilkan / tambahkan ke halaman HTML dalam app
+      app.append(headingTigaPertama);
+      app.appendChild(headingTigaKedua);
+
+      const pilihTagH1 = document.querySelector('#headingPertama');
+      console.log(pilihTagH1);
+    </script>
+  </body>
+</html>
