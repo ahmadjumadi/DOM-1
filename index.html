@@ -4,12 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JavaSctipt DOM</title>
+    <title>Belajar DOM</title>
   </head>
   <body>
-    <div>
-      <h3>Ini Heading 3 Pertama</h3>
-      <h3>Ini Heading 3 Kedua</h3>
+    <!-- sebuah div dengan id bernama app -->
+    <div id="app">
+      <h1 id="headingPertama">Halo ini adalah heading 1</h1>
+      <!-- h2 dengan class heading-2 -->
+      <h2 class="heading-2">Halo ini adalah heading 2 dengan suatu class</h2>
+      <h3>Halo ini adalah heading 3 yang pertama</h3>
+      <h3>Halo ini adalah heading 3 yang kedua</h3>
     </div>
+
+    <script>
+      // Kita akan mulai menulis javascriptnya di sini !
+
+      // Mulai seleksi dengan DOM
+      // getElementById
+      const nodeH1 = document.getElementById('headingPertama');
+      console.log(nodeH1);
+
+      // querySelector
+
+      // select class pakai .
+      // select id pakai #
+      const nodeH2 = document.querySelector('.heading-2');
+      console.log(nodeH2);
+
+      const nodeH3 = document.querySelectorAll('h3');
+      // console.log(nodeH3[1].innerHTML);
+      console.log(nodeH3);
+
+      // saya ga tau jumlah nodeH3 ada berapa,
+      // pokoknya pengen bisa dicetak, tanpa pakai index (dinamis !)
+
+      // Looping !
+      nodeH3.forEach((node) => {
+        // pengen cetak si innerHTML
+        console.log(node.innerHTML);
+      });
+    </script>
   </body>
 </html>
